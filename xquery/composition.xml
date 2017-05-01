@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composition>
+    <observation>
+        <origin>
+            <value>5/4/2011</value>
+        </origin>
+        <protocol>
+            <item_tree>
+                <element id="elx">X</element>
+                <element id="ely">Y</element>
+            </item_tree>
+        </protocol>
+        <event id="event1">
+            <time>2/2/2012</time>
+            <cluster>
+                <item>
+                    <measurement>
+                        <magnitude>1</magnitude>
+                        <units>a</units>
+                    </measurement>
+                    <measurement>
+                        <magnitude>2</magnitude>
+                        <units>b</units>
+                    </measurement>
+                </item>
+            </cluster>
+        </event>
+        <event id="event2">
+            <time>2/2/2012</time>
+            <cluster>
+                <item>
+                    <measurement>
+                        <magnitude>3</magnitude>
+                        <units>c</units>
+                    </measurement>
+                </item>
+            </cluster>
+        </event>
+    </observation>
+</composition>
