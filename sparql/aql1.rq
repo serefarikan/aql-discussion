@@ -1,0 +1,24 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX oe: <http://www.semanticweb.org/openehr/ontologies/2017/3/aql#>
+
+SELECT  ?magn ?units ?Protocol
+WHERE {
+	?comp a oe:Composition .
+	?comp oe:contains ?obs . ?obs a oe:Observation .
+		?obs oe:hasChild ?protocol . ?protocol oe:hasChild ?protoEl .
+		?protoEl oe:dvTextValue ?Protocol .
+		
+	?obs oe:hasChild ?event . ?event a oe:Event .
+		
+	
+	?event oe:hasChild ?cluster . ?cluster a oe:Cluster .
+
+	?cluster oe:hasChild ?el . ?el a oe:Element .
+
+	?el oe:hasChild ?dvq .	?dvq a oe:DvQuantity .
+		?dvq oe:magnitude ?magn .
+		?dvq oe:units ?units
+	#FILTER (?magn < 3.0)		
+}

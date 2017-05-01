@@ -1,0 +1,246 @@
+@prefix : <http://www.semanticweb.org/openehr/ontologies/2017/3/aql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/openehr/ontologies/2017/3/aql> .
+
+<http://www.semanticweb.org/openehr/ontologies/2017/3/aql> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#contains
+:contains rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdf:type owl:TransitiveProperty ;
+          rdfs:domain owl:Thing ;
+          rdfs:range owl:Thing .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#hasChild
+:hasChild rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :contains .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#dateTimeValue
+:dateTimeValue rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :DvDateTime ;
+               rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#dvTextValue
+:dvTextValue rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :DvText ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#magnitude
+:magnitude rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :DvQuantity ;
+           rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#units
+:units rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :DvQuantity ;
+       rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf :Entry .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Cluster
+:Cluster rdf:type owl:Class ;
+         rdfs:subClassOf :Item .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Composition
+:Composition rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#DvDateTime
+:DvDateTime rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#DvQuantity
+:DvQuantity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#DvText
+:DvText rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Element
+:Element rdf:type owl:Class ;
+         rdfs:subClassOf :Item .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Entry
+:Entry rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Evaluation
+:Evaluation rdf:type owl:Class ;
+            rdfs:subClassOf :Entry .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Event
+:Event rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Instruction
+:Instruction rdf:type owl:Class ;
+             rdfs:subClassOf :Entry .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Item
+:Item rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#ItemTree
+:ItemTree rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#Observation
+:Observation rdf:type owl:Class ;
+             rdfs:subClassOf :Entry .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#anyEvent1
+:anyEvent1 rdf:type owl:NamedIndividual ,
+                    :Event ;
+           :hasChild :cluster1 ,
+                     :time1 .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#anyEvent2
+:anyEvent2 rdf:type owl:NamedIndividual ,
+                    :Event ;
+           :hasChild :cluster2 ,
+                     :time2 .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#cluster1
+:cluster1 rdf:type owl:NamedIndividual ,
+                   :Cluster ;
+          :hasChild :element_1 ,
+                    :element_2 .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#cluster2
+:cluster2 rdf:type owl:NamedIndividual ,
+                   :Cluster ;
+          :hasChild :element_3 .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#composition
+:composition rdf:type owl:NamedIndividual ,
+                      :Composition ;
+             :hasChild :observation .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#element_1
+:element_1 rdf:type owl:NamedIndividual ,
+                    :Element ;
+           :hasChild :measurement_1_a .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#element_2
+:element_2 rdf:type owl:NamedIndividual ,
+                    :Element ;
+           :hasChild :measurement_2_b .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#element_3
+:element_3 rdf:type owl:NamedIndividual ,
+                    :Element ;
+           :hasChild :measurement_3_c .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#measurement_1_a
+:measurement_1_a rdf:type owl:NamedIndividual ,
+                          :DvQuantity ;
+                 :magnitude "1.0"^^xsd:double ;
+                 :units "a"^^xsd:string .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#measurement_2_b
+:measurement_2_b rdf:type owl:NamedIndividual ,
+                          :DvQuantity ;
+                 :magnitude "2.0"^^xsd:double ;
+                 :units "b"^^xsd:string .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#measurement_3_c
+:measurement_3_c rdf:type owl:NamedIndividual ,
+                          :DvQuantity ;
+                 :magnitude "3.0"^^xsd:double ;
+                 :units "c"^^xsd:string .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#observation
+:observation rdf:type owl:NamedIndividual ,
+                      :Observation ;
+             :hasChild :anyEvent1 ,
+                       :anyEvent2 ,
+                       :origin ,
+                       :protocol .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#origin
+:origin rdf:type owl:NamedIndividual ,
+                 :DvDateTime ;
+        :dateTimeValue "2017-05-12T11:23:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#protocol
+:protocol rdf:type owl:NamedIndividual ,
+                   :ItemTree ;
+          :hasChild :protocolElement_x ,
+                    :protocolElement_y .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#protocolElement_x
+:protocolElement_x rdf:type owl:NamedIndividual ,
+                            :DvText ;
+                   :dvTextValue "X"^^xsd:string .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#protocolElement_y
+:protocolElement_y rdf:type owl:NamedIndividual ,
+                            :DvText ;
+                   :dvTextValue "Y"^^xsd:string .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#time1
+:time1 rdf:type owl:NamedIndividual ,
+                :DvDateTime .
+
+
+###  http://www.semanticweb.org/openehr/ontologies/2017/3/aql#time2
+:time2 rdf:type owl:NamedIndividual ,
+                :DvDateTime .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
