@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composition>
+	<observation id="1.0">
+		<origin>
+			<value>20:00</value>
+		</origin>
+		<protocol>
+			<item_tree>
+				<element id="elx">Adult Thigh</element>
+			</item_tree>
+		</protocol>
+		<event id="1.1">
+			<time>20:05</time>
+			<cluster>
+				<item>
+					<measurement id="1.1-systolic">
+						<magnitude>100</magnitude>
+						<units>mm[Hg]</units>
+					</measurement>
+					<measurement id="1.1-diastolic">
+						<magnitude>90</magnitude>
+						<units>mm[Hg]</units>
+					</measurement>
+				</item>
+			</cluster>
+		</event>
+		<event id="1.2">
+			<time>20:10</time>
+			<cluster>
+				<item>
+					<measurement id="1.2-systolic">
+						<magnitude>101</magnitude>
+						<units>mm[Hg]</units>
+					</measurement>
+					<measurement id="1.2-diastolic">
+						<magnitude>91</magnitude>
+						<units>mm[Hg]</units>
+					</measurement>
+				</item>
+			</cluster>
+		</event>
+	
+	</observation>
+	
+	<observation id="2.0">
+		<origin>
+			<value>20:15</value>
+		</origin>
+		<protocol>
+			<item_tree>
+				<element id="elY">Large adult</element>
+			</item_tree>
+		</protocol>
+		<event id="2.1">
+			<time>20:20</time>
+			<cluster>
+				<item>
+					<measurement id="2.1-systolic">
+						<magnitude>102</magnitude>
+						<units>mm[Hg]</units>
+					</measurement>
+					<measurement id="2.1-diastolic">
+						<magnitude>92</magnitude>
+						<units>mm[Hg]</units>
+					</measurement>
+				</item>
+			</cluster>
+		</event>
+	</observation>
+</composition>
